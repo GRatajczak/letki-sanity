@@ -5,11 +5,14 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen",
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "typegen": "npx sanity@latest schema extract --enforce-required-fields --path=./schemaTypes/extract.json && npx sanity@latest typegen generate"
   },
   "keywords": [
     "sanity"

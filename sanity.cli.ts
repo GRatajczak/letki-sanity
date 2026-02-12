@@ -3,7 +3,7 @@ import {defineCliConfig} from 'sanity/cli'
 export default defineCliConfig({
   api: {
     projectId: 'lpo9jnfe',
-    dataset: 'production'
+    dataset: 'production',
   },
   deployment: {
     /**
@@ -11,5 +11,10 @@ export default defineCliConfig({
      * Learn more at https://www.sanity.io/docs/studio/latest-version-of-sanity#k47faf43faf56
      */
     autoUpdates: true,
-  }
+  },
+  typegen: {
+    path: './**/*.{ts,tsx,js,jsx}',
+    schema: './schemaTypes/extract.json',
+    generates: './schemaTypes/types.ts',
+  },
 })
