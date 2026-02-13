@@ -36,8 +36,8 @@ export const global = defineType({
           validation: (rule) =>
             rule
               .required()
-              .min(6)
-              .error('Komponent Instagram wymaga minimum 6 obrazow.'),
+              .min(8)
+              .error('Komponent Instagram wymaga minimum 8 obrazow.'),
         }),
       ],
       validation: (rule) => rule.required(),

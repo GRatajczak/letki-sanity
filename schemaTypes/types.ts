@@ -26,14 +26,50 @@ export type Gallery = {
   }>
 }
 
+export type Price = {
+  _type: 'price'
+  title: string
+  disclaimer?: string
+  prices: Array<{
+    amount: string
+    caption?: string
+    _type: 'priceItem'
+    _key: string
+  }>
+}
+
 export type ContactForm = {
   _type: 'contactForm'
+  image?: ImageWithAlt
   marker?: boolean
 }
 
 export type CourseForm = {
   _type: 'courseForm'
   marker?: boolean
+}
+
+export type TitleAndRichText = {
+  _type: 'titleAndRichText'
+  title: string
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
 }
 
 export type TextContent = {
@@ -130,7 +166,7 @@ export type SubHero = {
 
 export type Faq = {
   _type: 'faq'
-  title: string
+  title?: string
   questions: Array<
     {
       _key: string
@@ -278,10 +314,16 @@ export type Course = {
       } & TextContent)
     | ({
         _key: string
+      } & TitleAndRichText)
+    | ({
+        _key: string
       } & CourseForm)
     | ({
         _key: string
       } & ContactForm)
+    | ({
+        _key: string
+      } & Price)
     | ({
         _key: string
       } & Gallery)
@@ -361,10 +403,16 @@ export type Page = {
       } & TextContent)
     | ({
         _key: string
+      } & TitleAndRichText)
+    | ({
+        _key: string
       } & CourseForm)
     | ({
         _key: string
       } & ContactForm)
+    | ({
+        _key: string
+      } & Price)
     | ({
         _key: string
       } & Gallery)
@@ -490,8 +538,10 @@ export type Geopoint = {
 export type AllSanitySchemaTypes =
   | Instagram
   | Gallery
+  | Price
   | ContactForm
   | CourseForm
+  | TitleAndRichText
   | TextContent
   | IconsAndTitles
   | CoursePlan

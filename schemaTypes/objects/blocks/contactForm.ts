@@ -6,6 +6,11 @@ export const contactForm = defineType({
   type: 'object',
   fields: [
     defineField({
+      name: 'image',
+      title: 'Zdjęcie',
+      type: 'imageWithAlt',
+    }),
+    defineField({
       name: 'marker',
       type: 'boolean',
       initialValue: true,

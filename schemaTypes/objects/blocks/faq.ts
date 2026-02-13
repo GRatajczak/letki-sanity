@@ -8,7 +8,6 @@ export const faq = defineType({
     defineField({
       name: 'title',
       type: 'string',
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'questions',

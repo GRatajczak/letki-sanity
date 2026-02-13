@@ -13,9 +13,11 @@ import {hero} from './objects/blocks/hero'
 import {imageBlock} from './objects/blocks/image'
 import {iconsAndTitles} from './objects/blocks/iconsAndTitles'
 import {instagram} from './objects/blocks/instagram'
+import {price} from './objects/blocks/price'
 import {subHero} from './objects/blocks/subHero'
 import {textContent} from './objects/blocks/textContent'
 import {threeParagraphs} from './objects/blocks/threeParagraphs'
+import {titleAndRichText} from './objects/blocks/titleAndRichText'
 import {courseDay} from './objects/shared/courseDay'
 import {faqItem} from './objects/shared/faqItem'
 import {iconWithTitle} from './objects/shared/iconWithTitle'
@@ -44,8 +46,10 @@ export const schemaTypes = [
   coursePlan,
   iconsAndTitles,
   textContent,
+  titleAndRichText,
   courseForm,
   contactForm,
+  price,
   gallery,
   instagram,
 ]
