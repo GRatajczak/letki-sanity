@@ -17,9 +17,66 @@ export const coursePlan = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'days',
+      name: 'items',
+      title: 'Pozycje (obraz + teksty)',
       type: 'array',
-      of: [defineArrayMember({type: 'courseDay'})],
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'coursePlanItem',
+          title: 'Pozycja',
+          fields: [
+            defineField({
+              name: 'image',
+              title: 'Obraz',
+              type: 'imageWithAlt',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'title',
+              title: 'Tytuł',
+              type: 'string',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'textLines',
+              title: 'Linie tekstu (pogrubiony + przypisek)',
+              type: 'array',
+              of: [
+                defineArrayMember({
+                  type: 'object',
+                  name: 'textLine',
+                  title: 'Linia',
+                  fields: [
+                    defineField({
+                      name: 'boldText',
+                      title: 'Pogrubiony tekst',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'caption',
+                      title: 'Przypisek',
+                      type: 'string',
+                    }),
+                  ],
+                  preview: {
+                    select: {boldText: 'boldText'},
+                    prepare({boldText}) {
+                      return {title: boldText || 'Linia'}
+                    },
+                  },
+                }),
+              ],
+            }),
+          ],
+          preview: {
+            select: {title: 'title'},
+            prepare({title}) {
+              return {title: title || 'Pozycja'}
+            },
+          },
+        }),
+      ],
       validation: (rule) => rule.required().min(1),
     }),
   ],

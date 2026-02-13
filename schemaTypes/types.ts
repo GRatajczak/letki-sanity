@@ -92,11 +92,18 @@ export type CoursePlan = {
   _type: 'coursePlan'
   title: string
   content: string
-  days: Array<
-    {
+  items: Array<{
+    image: ImageWithAlt
+    title: string
+    textLines?: Array<{
+      boldText?: string
+      caption?: string
+      _type: 'textLine'
       _key: string
-    } & CourseDay
-  >
+    }>
+    _type: 'coursePlanItem'
+    _key: string
+  }>
 }
 
 export type ImageBlock = {
