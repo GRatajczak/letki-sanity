@@ -8,7 +8,6 @@ export const courses = defineType({
     defineField({
       name: 'title',
       type: 'string',
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'content',

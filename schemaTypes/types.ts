@@ -79,9 +79,43 @@ export type ThreeParagraphs = {
 
 export type AboutUsContent = {
   _type: 'aboutUsContent'
-  firstparagraph: string
-  secondparagraph: string
-  link: string
+  firstparagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+  secondparagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
+      _key: string
+    }>
+    style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }>
+  link?: string
   firstimage: ImageWithAlt
   secondimage: ImageWithAlt
   thirdimage: ImageWithAlt
@@ -118,7 +152,7 @@ export type CourseReference = {
 
 export type Courses = {
   _type: 'courses'
-  title: string
+  title?: string
   content?: string
   link?: string
   kursy: Array<
@@ -208,6 +242,53 @@ export type Course = {
     place: string
     price: number
   }
+  pageBuilder: Array<
+    | ({
+        _key: string
+      } & Hero)
+    | ({
+        _key: string
+      } & AboutCenter)
+    | ({
+        _key: string
+      } & Courses)
+    | ({
+        _key: string
+      } & Faq)
+    | ({
+        _key: string
+      } & SubHero)
+    | ({
+        _key: string
+      } & AboutUsContent)
+    | ({
+        _key: string
+      } & ThreeParagraphs)
+    | ({
+        _key: string
+      } & ImageBlock)
+    | ({
+        _key: string
+      } & CoursePlan)
+    | ({
+        _key: string
+      } & IconsAndTitles)
+    | ({
+        _key: string
+      } & TextContent)
+    | ({
+        _key: string
+      } & CourseForm)
+    | ({
+        _key: string
+      } & ContactForm)
+    | ({
+        _key: string
+      } & Gallery)
+    | ({
+        _key: string
+      } & Instagram)
+  >
 }
 
 export type Slug = {
