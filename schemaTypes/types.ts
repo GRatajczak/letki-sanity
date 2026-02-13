@@ -47,6 +47,11 @@ export type ContactForm = {
 export type CourseForm = {
   _type: 'courseForm'
   marker?: boolean
+  dates?: Array<{
+    date?: string
+    _type: 'dateEntry'
+    _key: string
+  }>
 }
 
 export type TitleAndRichText = {
